@@ -1,0 +1,33 @@
+
+<h1> LOGIN ! </h1>
+
+<div class="container">
+
+
+<div class="alert alert-warning" *ngIf='invalidLogin'> {{errorMessage}}</div> <br> <br>
+
+<div class="alert" *ngIf='validLogin'> {{okMessage}}</div> <br> <br>
+
+
+
+    <div>
+
+        User Name : <input type="text" name="username" [(ngModel)]="username"> <br> <br>
+
+        Password : <input type = "password" name="password" [(ngModel)]="password">
+    
+    
+        <br>
+    
+        <!-- User name : {{ username }} -->
+    
+    
+        <br>
+        <br>
+    
+        <!-- <button (click)= handleLogin() class="btn btn-success"> Login </button> -->
+        <button (click)= handleJWTAuthLogin() class="btn btn-success"> Login </button>
+
+    </div>
+
+</div>

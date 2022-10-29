@@ -1,0 +1,43 @@
+
+
+<h1>Todo</h1>
+
+<div class="container">
+
+    <div class="alert alert-warning" *ngIf="todoForm.invalid && todoForm.dirty"> Enter valid values</div>
+    <div class="alert alert-warning" *ngIf="targetDate.invalid && todoForm.dirty"> Enter valid target date</div>
+    <div class="alert alert-warning" *ngIf="description.invalid && todoForm.dirty"> Enter a description please values</div>
+
+    <!-- # => allow to declare a template variable -->
+    <!-- #todoform is though a template variable and with ngSubmit refer to a argument, invalid
+    now, if todoform.invalid is true it is okay , you can use save Todo-->
+
+<form action=" " (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm">
+
+    <fieldset class="form-group">
+
+        <label for=""> <h6> Description </h6> </label>
+
+        <input type="text" #description ="ngModel"
+        [(ngModel)]="todo.description" class="form-control" 
+        name="description" id="" required="required">
+
+    </fieldset>
+
+    <fieldset class="form-group"> 
+
+        <label for=""> <h6> Target Date </h6> </label>
+
+        <input type="Date" #targetDate="ngModel"
+        [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" 
+        (ngModelChange)="todo.targetDate = $event" 
+        class="form-control" name="Target Date" id="" required="required">
+ 
+    </fieldset>
+    
+
+    <button type="submit" class="btn btn-success" >Save</button>
+  
+</form>
+
+</div>
